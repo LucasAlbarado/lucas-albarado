@@ -26,3 +26,15 @@
 .footer {
   grid-area: footer;
 }
+.envio h1 {
+  padding: 5px;
+  font-size: 15px;
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 600px) {
+  .envio h1 {
+    font-size: 13px;
+  }
+}

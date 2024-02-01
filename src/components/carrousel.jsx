@@ -16,8 +16,10 @@ function DarkVariantExample() {
             alt="First slide"
           />
           <Carousel.Caption>
-            <h5>Nike Retro Celestes</h5>
-            <p>Elegancia vintage con toque moderno</p>
+            <h5 className=" text-xl text-sm text-xs">Nike Retro Celestes</h5>
+            <p className="parrafo-carousel text-xl text-sm text-xs">
+              Elegancia vintage con toque moderno
+            </p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
@@ -27,8 +29,12 @@ function DarkVariantExample() {
             alt="Second slide"
           />
           <Carousel.Caption>
-            <h5>Nike AIR MAX blancas con rojo</h5>
-            <p>Comodidad y rendimiento excepcionales</p>
+            <h5 className=" text-xl text-sm text-xs">
+              Nike AIR MAX blancas con rojo
+            </h5>
+            <p className="parrafo-carousel text-xl text-sm text-xs">
+              Comodidad y rendimiento excepcionales
+            </p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
@@ -38,8 +44,10 @@ function DarkVariantExample() {
             alt="Third slide"
           />
           <Carousel.Caption>
-            <h5>Vans Retro</h5>
-            <p>Elegancia informal y autenticidad moderna</p>
+            <h5 className="text-sm text-xl">Vans Retro</h5>
+            <p className="parrafo-carousel text-xl text-sm text-xs text-xxs">
+              Elegancia informal y autenticidad moderna
+            </p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
@@ -49,8 +57,10 @@ function DarkVariantExample() {
             alt="Third slide"
           />
           <Carousel.Caption>
-            <h5>Converse Botitas</h5>
-            <p>Diseño clásico y versátil</p>
+            <h5 className=" text-xl text-sm text-xs">Converse Botitas</h5>
+            <p className="parrafo-carousel text-xl text-sm text-xs">
+              Diseño clásico y versátil
+            </p>
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>

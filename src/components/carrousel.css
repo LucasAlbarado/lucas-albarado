@@ -3,3 +3,9 @@
   max-height: 500px;
   max-width: 100%;
 }
+
+@media (max-width: 600px) {
+  .parrafo-carousel {
+    display: none !important;
+  }
+}
