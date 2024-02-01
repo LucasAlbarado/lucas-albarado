@@ -1,0 +1,40 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+.contact {
+  height: 75vh;
+  background-color: #fffff2;
+  padding-top: 1.5rem;
+}
+.col1-contact {
+  padding-top: 50px;
+}
+.map-Contact {
+  margin: 30px;
+}
+.Content-map {
+  margin: 0;
+  padding: 0;
+}
+
+@media (max-width: 1000px) {
+  .contact {
+    height: auto;
+  }
+  .map-Contact {
+    display: flex;
+    justify-content: center;
+  }
+}
+@media (max-width: 600px) {
+  .contact-h1 {
+    font-size: 2rem;
+  }
+}
+@media (max-height: 1000px) {
+  .contact {
+    height: auto;
+    padding-bottom: 20px;
+  }
+}

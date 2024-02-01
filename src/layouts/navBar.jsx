@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Outlet, Link } from "react-router-dom";
 import "./navBar.css";
 
 const NavBarExample = () => {
@@ -27,6 +27,9 @@ const NavBarExample = () => {
           </Navbar.Collapse>
         </Container>
       </Navbar>
+      <section>
+        <Outlet></Outlet>
+      </section>
     </>
   );
 };
