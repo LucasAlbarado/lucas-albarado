@@ -3,6 +3,7 @@ import About from "./components/about.jsx";
 import Contact from "./components/contact.jsx";
 import Home from "./components/home.jsx";
 import NavBarExample from "./layouts/navBar.jsx";
+import Error404 from "./components/error404.jsx";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
             <Route index element={<Home />} />
             <Route path="about" element={<About />} />
             <Route path="contact" element={<Contact />} />
+            <Route path="error404" element={<Error404 />} />
             <Route path="*" element={<Navigate replace to="/" />} />
           </Route>
         </Routes>

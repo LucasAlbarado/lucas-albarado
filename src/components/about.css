@@ -28,7 +28,9 @@
   display: flex;
   justify-content: space-evenly;
 }
-
+.icons a {
+  color: white;
+}
 @media (max-width: 950px) {
   .title-about h1 {
     margin: 25px;

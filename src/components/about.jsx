@@ -8,6 +8,8 @@ import {
   FaTwitterSquare,
   FaGithubSquare,
 } from "react-icons/fa";
+import Error404 from "./error404.jsx";
+import { Link } from "react-router-dom";
 
 const About = () => {
   return (
@@ -28,10 +30,18 @@ const About = () => {
               />
             </Figure>
             <Figure.Caption className="icons text-white">
-              <FaLinkedin />
-              <FaFacebookSquare />
-              <FaTwitterSquare />
-              <FaGithubSquare />
+              <a href="https://www.linkedin.com/in/lucasalbarado/">
+                <FaLinkedin />
+              </a>
+              <a href="">
+                <FaFacebookSquare />
+              </a>
+              <Link to="/Error404">
+                <FaTwitterSquare />
+              </Link>
+              <a href="https://github.com/LucasAlbarado">
+                <FaGithubSquare />
+              </a>
             </Figure.Caption>
           </div>
           <div className="texto-about m-2">
