@@ -17,10 +17,7 @@ function DarkVariantExample() {
           />
           <Carousel.Caption>
             <h5>Nike Retro Celestes</h5>
-            <p>
-              Buscas algo que se pueda usar con todo? aqui esta lo que estas
-              buscando.
-            </p>
+            <p>Elegancia vintage con toque moderno</p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
@@ -31,7 +28,7 @@ function DarkVariantExample() {
           />
           <Carousel.Caption>
             <h5>Nike AIR MAX blancas con rojo</h5>
-            <p>Comodas y deportivas.</p>
+            <p>Comodidad y rendimiento excepcionales</p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
@@ -42,7 +39,7 @@ function DarkVariantExample() {
           />
           <Carousel.Caption>
             <h5>Vans Retro</h5>
-            <p>Literalmente, para todo andar</p>
+            <p>Elegancia informal y autenticidad moderna</p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
@@ -53,7 +50,7 @@ function DarkVariantExample() {
           />
           <Carousel.Caption>
             <h5>Converse Botitas</h5>
-            <p>Que elegancia la de francia</p>
+            <p>Diseño clásico y versátil</p>
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
