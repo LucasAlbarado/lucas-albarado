@@ -73,13 +73,12 @@ const About = () => {
             </span>
             <h5>Nuestro Equipo </h5>
             <span>
-              Detrás de [nombre de tu empresa] hay un equipo apasionado y
-              dedicado que trabaja arduamente para hacer realidad nuestra
-              visión. Desde nuestros expertos en moda hasta nuestro equipo de
-              servicio al cliente, cada miembro desempeña un papel fundamental
-              en el éxito de nuestra empresa. Nos comprometemos a trabajar
-              juntos para superar las expectativas de nuestros clientes en cada
-              interacción.
+              Detrás de KICKSMART hay un equipo apasionado y dedicado que
+              trabaja arduamente para hacer realidad nuestra visión. Desde
+              nuestros expertos en moda hasta nuestro equipo de servicio al
+              cliente, cada miembro desempeña un papel fundamental en el éxito
+              de nuestra empresa. Nos comprometemos a trabajar juntos para
+              superar las expectativas de nuestros clientes en cada interacción.
             </span>
           </div>
         </div>
