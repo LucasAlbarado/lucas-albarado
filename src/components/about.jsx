@@ -44,10 +44,42 @@ const About = () => {
             </Figure.Caption>
           </div>
           <div className="texto-about m-2">
+            <h5>Nuestra Historia</h5>
             <span>
-              Mi nombre es Lucas Miguel Albarado, este es mi proyecto para
-              programacion III de la carrera Tecnicatura Universitaria en
-              programacion, mi pagina web consiste en
+              KICKSMART nació de la pasión compartida por los sneakers y la moda
+              urbana. Desde nuestros humildes comienzos, hemos evolucionado para
+              convertirnos en un destino líder para los entusiastas del calzado
+              de todo el mundo. Fundada en 2023, nuestra empresa se ha dedicado
+              a proporcionar una experiencia única y satisfactoria a cada uno de
+              nuestros clientes.
+            </span>
+            <br />
+            <h5>Nuestra Misión</h5>
+            <span>
+              En KICKSMART, nuestra misión es ofrecer una selección excepcional
+              de sneakers de las mejores marcas, junto con un servicio al
+              cliente impecable. Nos esforzamos por ser el destino definitivo
+              para aquellos que buscan estilo, comodidad y calidad en cada paso
+              que dan. Trabajamos incansablemente para asegurarnos de que cada
+              cliente se sienta valorado y satisfecho con su experiencia de
+              compra. Nuestro Compromiso con la Calidad Nos enorgullecemos de
+              ofrecer solo los productos de la más alta calidad en nuestra
+              tienda en línea. Trabajamos en estrecha colaboración con las
+              marcas más prestigiosas del mundo para asegurarnos de que cada par
+              de sneakers que vendemos cumpla con nuestros estándares exigentes.
+              Desde los materiales hasta la artesanía, cada detalle se cuida
+              meticulosamente para garantizar que nuestros clientes reciban solo
+              lo mejor.
+            </span>
+            <h5>Nuestro Equipo </h5>
+            <span>
+              Detrás de [nombre de tu empresa] hay un equipo apasionado y
+              dedicado que trabaja arduamente para hacer realidad nuestra
+              visión. Desde nuestros expertos en moda hasta nuestro equipo de
+              servicio al cliente, cada miembro desempeña un papel fundamental
+              en el éxito de nuestra empresa. Nos comprometemos a trabajar
+              juntos para superar las expectativas de nuestros clientes en cada
+              interacción.
             </span>
           </div>
         </div>

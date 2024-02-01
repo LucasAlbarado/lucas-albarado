@@ -2,14 +2,18 @@ import React from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import { Outlet, Link } from "react-router-dom";
 import "./navBar.css";
+import logo1 from "../images/logo1.png";
+import logo2 from "../images/logo2.png";
+import logo3 from "../images/logo3.png";
 
 const NavBarExample = () => {
   return (
     <>
-      <Navbar expand="lg" className="header" data-bs-theme="dark">
-        <Container className="container">
-          <Navbar.Brand as={Link} to="/">
-            React-Bootstrap
+      <Navbar expand="lg" className="header p-0" data-bs-theme="dark">
+        <Container className="container p-0 ">
+          <Navbar.Brand as={Link} to="/" className="p-0">
+            <img src={logo1} alt="" className="imagen-logo" />
+            KickSmart
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav" className="flex-grow-0 ">
