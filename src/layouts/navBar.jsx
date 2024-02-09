@@ -3,8 +3,6 @@ import { Container, Nav, Navbar } from "react-bootstrap";
 import { Outlet, Link } from "react-router-dom";
 import "./navBar.css";
 import logo1 from "../images/logo1.png";
-import logo2 from "../images/logo2.png";
-import logo3 from "../images/logo3.png";
 
 const NavBarExample = () => {
   return (
@@ -26,6 +24,9 @@ const NavBarExample = () => {
               </Nav.Link>
               <Nav.Link as={Link} to="/Contact">
                 Contact
+              </Nav.Link>
+              <Nav.Link as={Link} to="/register">
+                Register
               </Nav.Link>
             </Nav>
           </Navbar.Collapse>
