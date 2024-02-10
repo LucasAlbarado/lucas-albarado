@@ -26,6 +26,10 @@
 .footer {
   grid-area: footer;
 }
+.body {
+  background-color: #6c98cf;
+  height: 100vh;
+}
 .envio h1 {
   padding: 5px;
   font-size: 15px;

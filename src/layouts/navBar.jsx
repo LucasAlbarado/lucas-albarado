@@ -25,7 +25,7 @@ const NavBarExample = () => {
               <Nav.Link as={Link} to="/Contact">
                 Contact
               </Nav.Link>
-              <Nav.Link as={Link} to="/register">
+              <Nav.Link as={Link} to="/login">
                 Register
               </Nav.Link>
             </Nav>
