@@ -21,7 +21,6 @@ function LoginRegister() {
         className={`container-form ${showRegisterForm ? "registro" : "login"}`}
       >
         {showRegisterForm ? (
-          // Contenido del formulario de registro
           <div className="information">
             <div className="welcome">
               <img
@@ -130,7 +129,6 @@ function LoginRegister() {
               </div>
               <p>Inicia sesión con email</p>
               <form className="form" id="form-login">
-                {/* Contenido del formulario de inicio de sesión */}
                 <label>
                   <i className="bx bx-user-circle"></i>
                   <input

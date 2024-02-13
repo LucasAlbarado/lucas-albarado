@@ -1,0 +1,35 @@
+.layout {
+  display: grid;
+  grid:
+    "header-m header-m header-m" auto
+    "catalog Container-catalog Container-catalog" 1fr
+    "Pagination Pagination Pagination" auto
+    / auto 1fr auto;
+  gap: 8px;
+}
+
+.header-m {
+  grid-area: header-m;
+}
+.catalog {
+  grid-area: catalog;
+}
+.Container-catalog {
+  grid-area: Container-catalog;
+}
+.Container-catalog ul {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 90px;
+  grid-auto-flow: dense;
+  justify-content: stretch;
+}
+
+.Pagination {
+  grid-area: Pagination;
+}
+
+.header-m {
+  display: none;
+}

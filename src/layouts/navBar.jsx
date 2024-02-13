@@ -17,16 +17,22 @@ const NavBarExample = () => {
           <Navbar.Collapse id="basic-navbar-nav" className="flex-grow-0 ">
             <Nav className="me-auto nav-bar">
               <Nav.Link as={Link} to="/">
-                Home
+                Inicio
+              </Nav.Link>
+              <Nav.Link as={Link} to="/menu">
+                Catalogo
               </Nav.Link>
               <Nav.Link as={Link} to="/About">
-                About
+                Nosotros
               </Nav.Link>
               <Nav.Link as={Link} to="/Contact">
-                Contact
+                Contacto
               </Nav.Link>
               <Nav.Link as={Link} to="/login">
-                Register
+                Registrarse
+              </Nav.Link>
+              <Nav.Link as={Link} to="/login">
+                Iniciar Sesion
               </Nav.Link>
             </Nav>
           </Navbar.Collapse>
