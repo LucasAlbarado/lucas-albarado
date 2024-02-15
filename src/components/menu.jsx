@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Card, ListGroup } from "react-bootstrap";
+import { Card, ListGroup, Pagination } from "react-bootstrap";
 import "./menu.css";
 
 const Menu = () => {
@@ -14,7 +14,9 @@ const Menu = () => {
       const options = {
         method: "GET",
         url: apiUrl,
-        params: { query: "adidas" },
+        params: {
+          query: "adidas",
+        },
         headers: {
           "X-RapidAPI-Key": apiKey,
           "X-RapidAPI-Host":
@@ -40,6 +42,16 @@ const Menu = () => {
     fetchData();
   }, []);
 
+  let active = 1;
+  let items = [];
+  for (let number = 1; number <= 3; number++) {
+    items.push(
+      <Pagination.Item key={number} active={number === active}>
+        {number}
+      </Pagination.Item>
+    );
+  }
+
   return (
     <div>
       <div className="header-m"></div>
@@ -59,25 +71,23 @@ const Menu = () => {
             {sneakers &&
               sneakers.map((sneaker, index) => (
                 <li key={index}>
-                  <Card
-                    className="border border-black border- rounded"
-                    style={{ width: "18rem" }}
-                  >
+                  <Card className="border border-black border- rounded card">
                     <Card.Img
+                      className="card-img"
                       variant="top"
                       src={sneaker.image}
                       alt={sneaker.title}
                     />
-                    <Card.Body>
+                    <Card.Body className="card-name">
                       <Card.Title>{sneaker.title}</Card.Title>
                     </Card.Body>
                     <ListGroup className="list-group-flush">
-                      <ListGroup.Item>
+                      <ListGroup.Item className="card-text">
                         {sneaker.base_price} {sneaker.currency}
                       </ListGroup.Item>
                       <ListGroup.Item>Genero: {sneaker.gender}</ListGroup.Item>
                     </ListGroup>
-                    <Card.Body>
+                    <Card.Body className="card-link">
                       <Card.Link href={sneaker.link}>Detalles</Card.Link>
                     </Card.Body>
                   </Card>
@@ -85,6 +95,9 @@ const Menu = () => {
               ))}
           </ul>
         </div>
+      </div>
+      <div className="Pagination">
+        <Pagination>{items}</Pagination>
       </div>
     </div>
   );
