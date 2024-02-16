@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "../components/loginRegister.css";
 import logo1 from "../images/logo1.png";
 import { FaGoogle, FaLinkedinIn, FaGithub } from "react-icons/fa";
+import Swal from "sweetalert2";
 
 function LoginRegister() {
   const [showRegisterForm, setShowRegisterForm] = useState(true);
@@ -13,6 +14,17 @@ function LoginRegister() {
 
   const handleSignUpClick = () => {
     setShowRegisterForm(true);
+  };
+
+  const handleSuccessfulRegistration = (username) => {
+    setUsername(username);
+    setIsAuthenticated(true);
+    // Mostrar el mensaje con SweetAlert
+    Swal.fire({
+      title: "The Internet?",
+      text: "That thing is still around?",
+      icon: "question"
+    });
   };
 
   return (
