@@ -5,8 +5,19 @@
 .header {
   background-color: #252422;
 }
-.imagen-logo {
+.imagen-logo-nav {
   margin: 0;
   padding: 0;
   height: 100px;
+}
+
+@media screen and (max-width: 575px) {
+  
+  .imagen-logo-nav {
+    padding-left: 10px;
+    height: 80px;
+  }
+  .navbar-toggler{
+    margin-right: 10px;
+  }
 }

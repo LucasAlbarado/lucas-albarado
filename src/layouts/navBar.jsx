@@ -10,7 +10,7 @@ const NavBarExample = () => {
       <Navbar expand="lg" className="header p-0" data-bs-theme="dark">
         <Container className="container p-0 ">
           <Navbar.Brand as={Link} to="/" className="p-0">
-            <img src={logo1} alt="" className="imagen-logo" />
+            <img src={logo1} alt="" className="imagen-logo-nav" />
             KickSmart
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
