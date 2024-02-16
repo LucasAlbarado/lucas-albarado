@@ -10,12 +10,11 @@ const Footer = () => {
       <Container>
         <Row className="justify-content-center">
           <Col md={12} className="text-center">
-            <h2 className="footer-heading"><Link to="#" className="logo">Venta de Zapatillas</Link></h2>
-            <p className="menu">
-            <Link to="/">Home</Link>
-              <Link to="/productos">Productos</Link>
-              <Link to="/acerca">Acerca de nosotros</Link>
-              <Link to="/contacto">Contacto</Link>
+            <h3 className="footer-heading">KickSmart</h3>
+            <p className="menu ">
+            <Link to="/" className='link-footer'>Home</Link>
+              <Link to="/About" className='link-footer'>Acerca de nosotros</Link>
+              <Link to="/Contact" className='link-footer'>Contacto</Link>
             </p>
             <ul className="icons-footer p-0">
               <li className='icons'>

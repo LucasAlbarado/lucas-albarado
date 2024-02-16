@@ -1,4 +1,5 @@
 .footer {
+  padding-top: 12px;
   background: #121212;
 }
 
@@ -11,6 +12,9 @@
 
 .footer .footer-heading .logo {
   color: #fff;
+}
+.link-footer{
+  text-decoration: none;
 }
 
 .footer .menu {
@@ -71,10 +75,16 @@
   color: black;
 }
 @media (max-width: 411px) {
+  .menu{
+    font-size: 12px;
+  }
   .icons-footer{
   gap: 0px;  
   }
   .icons-footer li{
     margin: 0px; 
+    }
+    .copyright{
+      font-size: 12px;
     }
   }

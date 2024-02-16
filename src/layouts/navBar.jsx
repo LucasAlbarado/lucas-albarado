@@ -22,12 +22,6 @@ const NavBarExample = () => {
               <Nav.Link as={Link} to="/menu">
                 Catalogo
               </Nav.Link>
-              <Nav.Link as={Link} to="/About">
-                Nosotros
-              </Nav.Link>
-              <Nav.Link as={Link} to="/Contact">
-                Contacto
-              </Nav.Link>
               <Nav.Link as={Link} to="/login">
                 Registrarse/Iniciar Sesion
               </Nav.Link>

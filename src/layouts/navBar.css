@@ -20,4 +20,7 @@
   .navbar-toggler{
     margin-right: 10px;
   }
+  .nav-bar a{
+    padding-left: 20px;
+  }
 }
