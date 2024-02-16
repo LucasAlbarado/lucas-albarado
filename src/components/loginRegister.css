@@ -9,7 +9,7 @@
   align-items: center;
   justify-content: center;
   background-color: #6c98cf;
-  height: 80vh;
+  height: 90vh;
 }
 .container-form {
   display: flex;
@@ -208,7 +208,7 @@
     padding: 8px 20px;
   }
   .welcome img {
-    padding-top: 20px;
+    padding-top: 10px;
     margin-bottom: 2px;
   }
   .container-form {
