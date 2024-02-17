@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../components/loginRegister.css";
 import logo1 from "../images/logo1.png";
@@ -7,30 +7,34 @@ import Swal from "sweetalert2";
 import axios from "axios";
 
 
-function LoginRegister({ isAuthenticated, setIsAuthenticated }) {
+function LoginRegister({ setIsAuthenticated }) {
   const [showRegisterForm, setShowRegisterForm] = useState(true);
-  //register
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     password: ""
   });
-  //login
   const [loginFormData, setLoginFormData] = useState({
     name: "",
     password: ""
   });
 
+  useEffect(() => {
+    // Verificar si hay un estado de autenticación almacenado en localStorage al cargar el componente
+    const isAuthenticatedStorage = localStorage.getItem("isAuthenticated");
+    if (isAuthenticatedStorage === "true") {
+      setIsAuthenticated(true);
+    }
+  }, []); // Solo se ejecuta una vez al cargar el componente
 
   const handleSignInClick = () => {
     setShowRegisterForm(false);
   };
 
-  
   const handleSignUpClick = () => {
     setShowRegisterForm(true);
   };
-  
+
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -44,13 +48,14 @@ function LoginRegister({ isAuthenticated, setIsAuthenticated }) {
       [e.target.name]: e.target.value
     });
   };
-  //login
+
   const handleLoginSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("https://nodejs-mysql-apirest-8516156f22db.herokuapp.com/api/login", loginFormData  );
+      const response = await axios.post("https://nodejs-mysql-apirest-8516156f22db.herokuapp.com/api/login", loginFormData);
       console.log(response.data);
       setIsAuthenticated(true); // Cambiar el estado a autenticado
+      localStorage.setItem("isAuthenticated", "true"); // Almacenar el estado de autenticación en localStorage
       Swal.fire({
         title: "Inicio de sesión exitoso",
         text: `¡Bienvenido de nuevo, ${response.data.name}!!`,
@@ -66,14 +71,11 @@ function LoginRegister({ isAuthenticated, setIsAuthenticated }) {
     }
   };
 
-
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
     try {
       const response = await axios.post("https://nodejs-mysql-apirest-8516156f22db.herokuapp.com/api/users", formData);
       console.log(response.data);
-      // Aquí puedes agregar cualquier lógica adicional para manejar la respuesta, como mostrar una alerta de éxito
       Swal.fire({
         title: "Registro exitoso",
         text: "¡Tu cuenta ha sido creada correctamente!",
@@ -86,7 +88,6 @@ function LoginRegister({ isAuthenticated, setIsAuthenticated }) {
       });
     } catch (error) {
       console.error(error);
-      // Aquí puedes manejar cualquier error que ocurra durante el registro
       Swal.fire({
         title: "Error",
         text: "Ha ocurrido un error durante el registro. Por favor, inténtalo de nuevo más tarde.",
@@ -94,24 +95,7 @@ function LoginRegister({ isAuthenticated, setIsAuthenticated }) {
       });
     }
   };
-  //termina el login
-  
-  const handleLogin = async (credentials) => {
-    try {
-      // Realizar la solicitud de inicio de sesión al backend
-      const response = await axios.post('https://nodejs-mysql-apirest-8516156f22db.herokuapp.com/api/login', loginFormData);
-      
-      // Verificar si el inicio de sesión fue exitoso
-      if (response.data.success) {
-        setIsAuthenticated(true); // Cambiar el estado de autenticación a true
-        // Aquí puedes realizar otras acciones, como almacenar el token de autenticación en el almacenamiento local.
-      } else {
-        // Si el inicio de sesión falla, mostrar un mensaje de error o realizar otras acciones necesarias.
-      }
-    } catch (error) {
-      console.error('Error de inicio de sesión:', error);
-    }
-  };
+
   
 
   return (
