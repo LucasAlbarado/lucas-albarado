@@ -7,7 +7,7 @@ import Swal from "sweetalert2";
 import axios from "axios";
 
 
-function LoginRegister() {
+function LoginRegister({ isAuthenticated, setIsAuthenticated }) {
   const [showRegisterForm, setShowRegisterForm] = useState(true);
   //register
   const [formData, setFormData] = useState({
@@ -20,6 +20,7 @@ function LoginRegister() {
     name: "",
     password: ""
   });
+
 
   const handleSignInClick = () => {
     setShowRegisterForm(false);
@@ -47,9 +48,9 @@ function LoginRegister() {
   const handleLoginSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.get("https://nodejs-mysql-apirest-8516156f22db.herokuapp.com/api/login", { params: loginFormData });
+      const response = await axios.post("https://nodejs-mysql-apirest-8516156f22db.herokuapp.com/api/login", loginFormData  );
       console.log(response.data);
-      
+      setIsAuthenticated(true); // Cambiar el estado a autenticado
       Swal.fire({
         title: "Inicio de sesión exitoso",
         text: `¡Bienvenido de nuevo, ${response.data.name}!!`,
@@ -68,6 +69,7 @@ function LoginRegister() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
     try {
       const response = await axios.post("https://nodejs-mysql-apirest-8516156f22db.herokuapp.com/api/users", formData);
       console.log(response.data);
@@ -75,7 +77,12 @@ function LoginRegister() {
       Swal.fire({
         title: "Registro exitoso",
         text: "¡Tu cuenta ha sido creada correctamente!",
-        icon: "success"
+        icon: "success",
+        confirmButtonText: "Ingresa aqui"
+      }).then((result) => {
+        if (result.isConfirmed) {
+          handleSignInClick();
+        }
       });
     } catch (error) {
       console.error(error);
@@ -87,8 +94,25 @@ function LoginRegister() {
       });
     }
   };
-  //termina
-
+  //termina el login
+  
+  const handleLogin = async (credentials) => {
+    try {
+      // Realizar la solicitud de inicio de sesión al backend
+      const response = await axios.post('https://nodejs-mysql-apirest-8516156f22db.herokuapp.com/api/login', loginFormData);
+      
+      // Verificar si el inicio de sesión fue exitoso
+      if (response.data.success) {
+        setIsAuthenticated(true); // Cambiar el estado de autenticación a true
+        // Aquí puedes realizar otras acciones, como almacenar el token de autenticación en el almacenamiento local.
+      } else {
+        // Si el inicio de sesión falla, mostrar un mensaje de error o realizar otras acciones necesarias.
+      }
+    } catch (error) {
+      console.error('Error de inicio de sesión:', error);
+    }
+  };
+  
 
   return (
     <div className="main">

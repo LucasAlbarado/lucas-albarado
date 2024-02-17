@@ -1,20 +1,11 @@
-import React, { useState } from "react";
-import { Container, Nav, Navbar } from "react-bootstrap";
+import React from "react";
+import { Container, Nav, Navbar, NavDropdown  } from "react-bootstrap";
 import { Outlet, Link } from "react-router-dom";
 import "./navBar.css";
 import logo1 from "../images/logo1.png";
 
-const NavBarExample = () => {
-  // Define el estado para almacenar si el usuario está registrado y su nombre de usuario
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [username, setUsername] = useState("");
-
-  // Función para manejar el cierre de sesión
-  const handleLogout = () => {
-    // Aquí colocarías la lógica para cerrar la sesión del usuario
-    setIsAuthenticated(false);
-    setUsername("");
-  };
+const NavBarExample = ({ isAuthenticated }) => {
+  
 
   return (
     <>
@@ -35,15 +26,22 @@ const NavBarExample = () => {
               </Nav.Link>
               {/* Renderizado condicional para mostrar diferentes enlaces según el estado de autenticación */}
               {isAuthenticated ? (
-                <>
-                  <Nav.Link>{`Hola ${username}`}</Nav.Link>
-                  <Nav.Link onClick={handleLogout}>Cerrar sesión</Nav.Link>
-                </>
-              ) : (
-                <Nav.Link as={Link} to="/login">
-                  Iniciar sesión
-                </Nav.Link>
-              )}
+            <NavDropdown title="Mi Cuenta" id="basic-nav-dropdown">
+            <NavDropdown.Item href="#action/3.1">Editar perfil</NavDropdown.Item>
+            <NavDropdown.Item href="#action/3.2">
+              Another action
+            </NavDropdown.Item>
+            <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+            <NavDropdown.Divider />
+            <NavDropdown.Item href="#action/3.4">
+              Separated link
+            </NavDropdown.Item>
+          </NavDropdown>
+          ) : (
+            <Nav.Link as={Link} to="/login">
+              Iniciar sesión
+            </Nav.Link>
+          )}
             </Nav>
           </Navbar.Collapse>
         </Container>
