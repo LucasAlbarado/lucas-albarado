@@ -2,13 +2,27 @@
   margin: 0;
   padding: 0;
 }
+.container-about{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #252422;
+  height: 90vh;
 
+}
 .title-about h1 {
-  margin: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 30px;
+  color: aliceblue;
+}
+.imagen-about{
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+    justify-content: center;
 }
 .image {
   min-width: 25vh;
@@ -18,24 +32,43 @@
   background-color: aquamarine;
 }
 .texto-about {
+  font-size: 20px;
   width: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-.icons {
-  margin: 0;
+.name-sn{
+  background-color: black;
+  margin-top: 2px;
+  color: white;
+  display: flex;
+  justify-content: center;
   padding-top: 5px;
+  padding-bottom: 5px;
+}
+.icons-about {
+  margin-top: 2px;
   padding-bottom: 5px;
   background-color: black;
   display: flex;
+  padding-top: 5px;
   justify-content: space-evenly;
 }
-.icons a {
+.icons-about a {
   color: white;
 }
+@media (max-width: 1380px) {
+  .texto-about{
+    font-size: 17px;
+  }
+}
 @media (max-width: 950px) {
+  .container-about{
+    height: auto;
+  }
+  
   .title-about h1 {
     margin: 25px;
   }
@@ -48,7 +81,7 @@
     min-width: none;
   }
 
-  .icons {
+  .icons-about {
     max-width: 440px;
   }
 }
@@ -69,7 +102,7 @@
   .imagen {
     width: 300px;
   }
-  .icons {
+  .icons-about {
     max-width: none;
     width: 300px;
   }
@@ -84,7 +117,7 @@
     padding: 0px;
     align-items: normal;
   }
-  .icons {
+  .icons-about {
     width: 100%;
     min-width: none;
   }

@@ -1,11 +1,17 @@
+import { Outlet, Link  } from "react-router-dom";
 import React from "react";
 import { Container, Nav, Navbar, NavDropdown  } from "react-bootstrap";
-import { Outlet, Link } from "react-router-dom";
 import "./navBar.css";
 import logo1 from "../images/logo1.png";
 
 const NavBarExample = ({ isAuthenticated }) => {
-  
+
+  const handleLogout = () => {
+    // Limpiar la sesión en el cliente
+    localStorage.removeItem("isAuthenticated");
+
+    window.location.href = "/"; // Cambia la URL según sea necesario
+  };
 
   return (
     <>
@@ -32,7 +38,7 @@ const NavBarExample = ({ isAuthenticated }) => {
             Editar perfil
             </NavDropdown.Item>
             <NavDropdown.Divider />
-            <NavDropdown.Item href="#action/3.4">
+            <NavDropdown.Item onClick={handleLogout} as="button" href="#action/3.4">
               Cerrar sesion
             </NavDropdown.Item>
           </NavDropdown>

@@ -14,6 +14,15 @@
 .catalog {
   grid-area: catalog;
 }
+.continer-menu{
+color: #ffffff;
+  background-color: #252422;
+}
+.Title-menu{
+  display: grid;
+  place-items: center;
+  padding-top: 10px;
+}
 .Container-catalog {
   grid-area: Container-catalog;
   margin-top: 20px;

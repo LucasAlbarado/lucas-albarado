@@ -53,7 +53,7 @@ const Menu = () => {
   }
 
   return (
-    <div>
+    <div className="continer-menu">
       <div className="header-m"></div>
       <div className="Title-menu">
         <h1>Catálogo de Zapatillas</h1>

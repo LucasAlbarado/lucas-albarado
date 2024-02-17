@@ -28,7 +28,10 @@ const About = () => {
                 src={fotolucas}
               />
             </Figure>
-            <Figure.Caption className="icons text-white">
+            <div className="name-sn">
+              <h5>Lucas Albarado</h5>
+            </div>
+            <Figure.Caption className="icons-about text-white">
               <a href="https://www.linkedin.com/in/lucasalbarado/">
                 <FaLinkedin />
               </a>
