@@ -7,6 +7,9 @@
   background-color: #252422;
   padding-top: 1.5rem;
 }
+.contact-h1 h1{
+  color: white !important;
+}
 .col1-contact {
   padding-top: 50px;
 }

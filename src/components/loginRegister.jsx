@@ -7,7 +7,7 @@ import Swal from "sweetalert2";
 import axios from "axios";
 
 
-function LoginRegister({ setIsAuthenticated }) {
+function LoginRegister({ setIsAuthenticated, setUserName}) {
   const [showRegisterForm, setShowRegisterForm] = useState(true);
   const [formData, setFormData] = useState({
     name: "",
@@ -18,14 +18,15 @@ function LoginRegister({ setIsAuthenticated }) {
     name: "",
     password: ""
   });
-
   useEffect(() => {
     // Verificar si hay un estado de autenticación almacenado en localStorage al cargar el componente
     const isAuthenticatedStorage = localStorage.getItem("isAuthenticated");
-    if (isAuthenticatedStorage === "true") {
+    const userNameStorage = localStorage.getItem("userName");
+    if (isAuthenticatedStorage === "true" && userNameStorage) {
       setIsAuthenticated(true);
+      setUserName(userNameStorage);
     }
-  }, []); // Solo se ejecuta una vez al cargar el componente
+  }, [setIsAuthenticated, setUserName]); // Solo se ejecuta una vez al cargar el componente
 
   const handleSignInClick = () => {
     setShowRegisterForm(false);
@@ -55,10 +56,12 @@ function LoginRegister({ setIsAuthenticated }) {
       const response = await axios.post("https://nodejs-mysql-apirest-8516156f22db.herokuapp.com/api/login", loginFormData);
       console.log(response.data);
       setIsAuthenticated(true); // Cambiar el estado a autenticado
-      localStorage.setItem("isAuthenticated", "true"); // Almacenar el estado de autenticación en localStorage
+      localStorage.setItem("isAuthenticated", "true");
+      setUserName(response.data.user.name); // Guardar el nombre de usuario en el estado
+      localStorage.setItem("userName", response.data.user.name); // Guardar el nombre de usuario en localStorage
       Swal.fire({
         title: "Inicio de sesión exitoso",
-        text: `¡Bienvenido de nuevo, ${response.data.name}!!`,
+        text: `¡Bienvenido de nuevo, ${response.data.user.name}!!`,
         icon: "success"
       });
     } catch (error) {
@@ -95,7 +98,7 @@ function LoginRegister({ setIsAuthenticated }) {
       });
     }
   };
-
+  
   
 
   return (

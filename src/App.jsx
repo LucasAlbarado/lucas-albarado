@@ -11,17 +11,18 @@ import Footer from "./layouts/footer.jsx";
 
 function App() {
 const [isAuthenticated, setIsAuthenticated] = useState(false);
+const [userName, setUserName] = useState('');
   
   return (
     <div className="App">
       <BrowserRouter>
-        <NavBarExample isAuthenticated={isAuthenticated}/>
+        <NavBarExample isAuthenticated={isAuthenticated} userName={userName}/>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="menu" element={<Menu />} />
           <Route path="about" element={<About />} />
           <Route path="contact" element={<Contact />} />
-          <Route path="login" element={<LoginRegister isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated}/>} />
+          <Route path="login" element={<LoginRegister isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} setUserName={setUserName}/>} />
           <Route path="error404" element={<Error404 />} />
           <Route path="*" element={<Navigate replace to="/" />} />
         </Routes>

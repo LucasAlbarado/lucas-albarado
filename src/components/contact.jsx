@@ -80,8 +80,8 @@ function Contact() {
       <Container className="container-contact">
         <Row>
           <Col xs={10} lg={6} className=" mx-auto col1-contact">
-            <div className="d-flex align-items-center justify-content-center">
-              <h1 className="contact-h1">Contactanos</h1>
+            <div className="d-flex align-items-center justify-content-center ">
+              <h1 className="contact-h1 text-white" >Contactanos</h1>
             </div>
             <Formik
               initialValues={initialValues}

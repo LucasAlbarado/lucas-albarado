@@ -1,17 +1,25 @@
+import React, {useEffect} from "react";
 import { Outlet, Link  } from "react-router-dom";
-import React from "react";
 import { Container, Nav, Navbar, NavDropdown  } from "react-bootstrap";
 import "./navBar.css";
 import logo1 from "../images/logo1.png";
 
-const NavBarExample = ({ isAuthenticated }) => {
+const NavBarExample = ({ isAuthenticated, userName  }) => {
 
   const handleLogout = () => {
     // Limpiar la sesión en el cliente
     localStorage.removeItem("isAuthenticated");
-
+    localStorage.removeItem("userName");
     window.location.href = "/"; // Cambia la URL según sea necesario
   };
+  const setUserName = () => {};
+  useEffect(() => {
+    // Verificar si hay un userName almacenado en localStorage al cargar el componente
+    const storedUserName = localStorage.getItem("userName");
+    if (storedUserName) {
+      setUserName(storedUserName);
+    }
+  }, []);
 
   return (
     <>
@@ -33,7 +41,7 @@ const NavBarExample = ({ isAuthenticated }) => {
               {/* Renderizado condicional para mostrar diferentes enlaces según el estado de autenticación */}
               {isAuthenticated ? (
             <NavDropdown title="Mi Cuenta" id="basic-nav-dropdown">
-            <NavDropdown.Item href="#action/3.1">Editar perfil</NavDropdown.Item>
+            <NavDropdown.Item>Hola, {userName}</NavDropdown.Item>
             <NavDropdown.Item href="#action/3.2">
             Editar perfil
             </NavDropdown.Item>
