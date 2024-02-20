@@ -9,7 +9,6 @@ import axios from "axios";
 
 function LoginRegister({ setIsAuthenticated, setUserName}) {
   const [showRegisterForm, setShowRegisterForm] = useState(true);
-  const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
 
   const [formData, setFormData] = useState({
