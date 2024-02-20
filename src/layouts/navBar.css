@@ -10,7 +10,9 @@
   padding: 0;
   height: 100px;
 }
-
+.pointer-nav-item{
+  pointer-events: none !important;
+}
 @media screen and (max-width: 575px) {
   
   .imagen-logo-nav {
