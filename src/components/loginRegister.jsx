@@ -2,13 +2,16 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../components/loginRegister.css";
 import logo1 from "../images/logo1.png";
-import { FaGoogle, FaLinkedinIn, FaGithub } from "react-icons/fa";
+import { FaGoogle, FaLinkedinIn, FaGithub,FaLock, FaUser,FaEnvelope,FaEye,FaEyeSlash   } from "react-icons/fa";
 import Swal from "sweetalert2";
 import axios from "axios";
 
 
 function LoginRegister({ setIsAuthenticated, setUserName}) {
   const [showRegisterForm, setShowRegisterForm] = useState(true);
+  const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -99,7 +102,9 @@ function LoginRegister({ setIsAuthenticated, setUserName}) {
     }
   };
   
-  
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
 
   return (
     <div className="main">
@@ -161,7 +166,7 @@ function LoginRegister({ setIsAuthenticated, setUserName}) {
               <form onSubmit={handleSubmit} className="form" id="form-register">
                 {/* Contenido del formulario de registro */}
                 <label>
-                  <i className="bx bx-user-circle"></i>
+                <FaUser />
                   <input
                     type="text"
                     name="name"
@@ -174,7 +179,7 @@ function LoginRegister({ setIsAuthenticated, setUserName}) {
                   />
                 </label>
                 <label>
-                  <i className="bx bx-envelope"></i>
+                <FaEnvelope />
                   <input
                     type="email"
                     name="email"
@@ -188,19 +193,21 @@ function LoginRegister({ setIsAuthenticated, setUserName}) {
                   />
                 </label>
                 <label>
-                  <i className="bx bx-lock"></i>
+                  <FaLock />
                   <input
-                    type="password"
+                    type={showPassword ? "text" : "password"}
                     name="password"
                     placeholder="Contraseña"
                     minLength="8"
                     maxLength="16"
-                    autoComplete="current-password"
-                    id="password-r"
-                    value={formData.password}
-                    onChange={handleChange}
+                    id="password-l"
+                    value={loginFormData.password}
+                    onChange={handleLoginChange}
                     required
                   />
+                  <span onClick={togglePasswordVisibility}>
+                    {showPassword ? <FaEyeSlash /> : <FaEye />}
+                  </span>
                 </label>
                 <input type="submit" value="Registrarse" id="button" />
               </form>
@@ -222,7 +229,7 @@ function LoginRegister({ setIsAuthenticated, setUserName}) {
               <p>Inicia sesión con el nombre se usuario</p>
               <form onSubmit={handleLoginSubmit} className="form" id="form-login">
                 <label>
-                  <i className="bx bx-user-circle"></i>
+                <FaUser />
                   <input
                     type="text"
                     name="name"
@@ -235,9 +242,9 @@ function LoginRegister({ setIsAuthenticated, setUserName}) {
                   />
                 </label>
                 <label>
-                  <i className="bx bx-lock"></i>
+                  <FaLock />
                   <input
-                    type="password"
+                    type={showPassword ? "text" : "password"}
                     name="password"
                     placeholder="Contraseña"
                     minLength="8"
@@ -247,6 +254,9 @@ function LoginRegister({ setIsAuthenticated, setUserName}) {
                     onChange={handleLoginChange}
                     required
                   />
+                  <span onClick={togglePasswordVisibility} className="span-showpassword">
+                    {showPassword ? <FaEyeSlash /> : <FaEye />}
+                  </span>
                 </label>
                 <input
                   type="submit"
