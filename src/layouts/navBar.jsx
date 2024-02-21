@@ -12,7 +12,7 @@ const NavBarExample = ({ isAuthenticated, userName  }) => {
     localStorage.getItem("minutes") ? parseInt(localStorage.getItem("minutes")) : 0
   );
 
-  let timer; // Definir timer en un ámbito más amplio
+   let timer;
 
   useEffect(() => {
     timer = setInterval(() => {
