@@ -81,6 +81,7 @@ function LoginRegister({ setIsAuthenticated, setUserName}) {
     try {
       const response = await axios.post("https://nodejs-mysql-apirest-8516156f22db.herokuapp.com/api/users", formData);
       console.log(response.data);
+     
       Swal.fire({
         title: "Registro exitoso",
         text: "¡Tu cuenta ha sido creada correctamente!",
@@ -200,8 +201,8 @@ function LoginRegister({ setIsAuthenticated, setUserName}) {
                     minLength="8"
                     maxLength="16"
                     id="password-l"
-                    value={loginFormData.password}
-                    onChange={handleLoginChange}
+                    value={formData.password}
+                    onChange={handleChange}
                     required
                   />
                   <span onClick={togglePasswordVisibility}>
