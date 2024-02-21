@@ -11,7 +11,7 @@
   height: 100px;
 }
 .nav-link{
-  transition: color 0.5s;
+  transition: color 0.5s !important;
 }
 .nav-link:hover{
   color: #5B61C8  !important;
