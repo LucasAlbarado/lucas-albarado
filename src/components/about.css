@@ -29,7 +29,8 @@
 }
 .Container-card {
   display: flex;
-  background-color: aquamarine;
+color: aliceblue;
+  background-color: #3E2877;
 }
 .texto-about {
   font-size: 20px;

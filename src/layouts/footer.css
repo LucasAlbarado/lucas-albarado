@@ -71,6 +71,16 @@
   background-color: #ececec;
   color: black;
 }
+
+
+#root > div > footer > div > div.justify-content-center.row > div > p > a{
+  transition: color 0.5s;
+}
+a:hover {
+  color: #5B61C8  !important;
+}
+
+
 @media (max-width: 768px) {
   .icons-footer{
     max-width: 300px;

@@ -10,6 +10,12 @@
   padding: 0;
   height: 100px;
 }
+.nav-link{
+  transition: color 0.5s;
+}
+.nav-link:hover{
+  color: #5B61C8  !important;
+}
 .pointer-nav-item{
   pointer-events: none !important;
 }
