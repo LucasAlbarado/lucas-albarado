@@ -11,24 +11,36 @@ const NavBarExample = ({ isAuthenticated, userName  }) => {
   const [minutes, setMinutes] = useState(
     localStorage.getItem("minutes") ? parseInt(localStorage.getItem("minutes")) : 0
   );
-  
+
+  let timer; // Definir timer en un ámbito más amplio
+
   useEffect(() => {
-    let timer;
     timer = setInterval(() => {
-      setSeconds((prevSeconds) => prevSeconds + 1);
-      if (seconds === 59) {
-        setMinutes((prevMinutes) => prevMinutes + 1);
-        setSeconds(0);
-      }
+      setSeconds((prevSeconds) => {
+        if (prevSeconds === 59) {
+          setMinutes((prevMinutes) => prevMinutes + 1);
+          return 0;
+        } else {
+          return prevSeconds + 1;
+        }
+      });
     }, 1000);
 
     return () => clearInterval(timer);
-  }, [seconds]);
+  }, []); // No olvides las dependencias aquí
+
   useEffect(() => {
     // Almacenar segundos y minutos en localStorage
     localStorage.setItem("seconds", seconds);
     localStorage.setItem("minutes", minutes);
-  }, [seconds, minutes]);
+
+    return () => {
+      // Limpiar el intervalo cuando se cierre la sesión
+      clearInterval(timer);
+      setSeconds(0);
+      setMinutes(0);
+    };
+  }, [seconds, minutes]); // Agrega las dependencias para que este efecto se ejecute cuando cambien los segundos y los minutos
 
 
   const handleLogout = () => {
