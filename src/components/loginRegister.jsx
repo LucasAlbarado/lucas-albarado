@@ -2,23 +2,31 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../components/loginRegister.css";
 import logo1 from "../images/logo1.png";
-import { FaGoogle, FaLinkedinIn, FaGithub,FaLock, FaUser,FaEnvelope,FaEye,FaEyeSlash   } from "react-icons/fa";
+import {
+  FaGoogle,
+  FaLinkedinIn,
+  FaGithub,
+  FaLock,
+  FaUser,
+  FaEnvelope,
+  FaEye,
+  FaEyeSlash,
+} from "react-icons/fa";
 import Swal from "sweetalert2";
 import axios from "axios";
 
-
-function LoginRegister({ setIsAuthenticated, setUserName}) {
+function LoginRegister({ setIsAuthenticated, setUserName }) {
   const [showRegisterForm, setShowRegisterForm] = useState(true);
   const [showPassword, setShowPassword] = useState(false);
 
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    password: ""
+    password: "",
   });
   const [loginFormData, setLoginFormData] = useState({
     name: "",
-    password: ""
+    password: "",
   });
   useEffect(() => {
     // Verificar si hay un estado de autenticación almacenado en localStorage al cargar el componente
@@ -41,21 +49,24 @@ function LoginRegister({ setIsAuthenticated, setUserName}) {
   const handleChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
   const handleLoginChange = (e) => {
     setLoginFormData({
       ...loginFormData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
   const handleLoginSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("https://nodejs-mysql-apirest-8516156f22db.herokuapp.com/api/login", loginFormData);
+      const response = await axios.post(
+        "http://localhost:3000/api/login",
+        loginFormData
+      );
       console.log(response.data);
       setIsAuthenticated(true); // Cambiar el estado a autenticado
       localStorage.setItem("isAuthenticated", "true");
@@ -64,14 +75,14 @@ function LoginRegister({ setIsAuthenticated, setUserName}) {
       Swal.fire({
         title: "Inicio de sesión exitoso",
         text: `¡Bienvenido de nuevo, ${response.data.user.name}!!`,
-        icon: "success"
+        icon: "success",
       });
     } catch (error) {
       console.error(error);
       Swal.fire({
         title: "Error",
         text: "Ha ocurrido un error durante el inicio de sesión. Por favor, verifica tus credenciales e inténtalo de nuevo.",
-        icon: "error"
+        icon: "error",
       });
     }
   };
@@ -79,14 +90,17 @@ function LoginRegister({ setIsAuthenticated, setUserName}) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("https://nodejs-mysql-apirest-8516156f22db.herokuapp.com/api/users", formData);
+      const response = await axios.post(
+        "http://localhost:3000/api/users",
+        formData
+      );
       console.log(response.data);
-     
+
       Swal.fire({
         title: "Registro exitoso",
         text: "¡Tu cuenta ha sido creada correctamente!",
         icon: "success",
-        confirmButtonText: "Ingresa aqui"
+        confirmButtonText: "Ingresa aqui",
       }).then((result) => {
         if (result.isConfirmed) {
           handleSignInClick();
@@ -97,11 +111,11 @@ function LoginRegister({ setIsAuthenticated, setUserName}) {
       Swal.fire({
         title: "Error",
         text: "Ha ocurrido un error durante el registro. Por favor, inténtalo de nuevo más tarde.",
-        icon: "error"
+        icon: "error",
       });
     }
   };
-  
+
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
@@ -166,7 +180,7 @@ function LoginRegister({ setIsAuthenticated, setUserName}) {
               <form onSubmit={handleSubmit} className="form" id="form-register">
                 {/* Contenido del formulario de registro */}
                 <label>
-                <FaUser />
+                  <FaUser />
                   <input
                     type="text"
                     name="name"
@@ -179,7 +193,7 @@ function LoginRegister({ setIsAuthenticated, setUserName}) {
                   />
                 </label>
                 <label>
-                <FaEnvelope />
+                  <FaEnvelope />
                   <input
                     type="email"
                     name="email"
@@ -227,9 +241,13 @@ function LoginRegister({ setIsAuthenticated, setUserName}) {
                 </Link>
               </div>
               <p>Inicia sesión con el nombre se usuario</p>
-              <form onSubmit={handleLoginSubmit} className="form" id="form-login">
+              <form
+                onSubmit={handleLoginSubmit}
+                className="form"
+                id="form-login"
+              >
                 <label>
-                <FaUser />
+                  <FaUser />
                   <input
                     type="text"
                     name="name"
@@ -254,7 +272,10 @@ function LoginRegister({ setIsAuthenticated, setUserName}) {
                     onChange={handleLoginChange}
                     required
                   />
-                  <span onClick={togglePasswordVisibility} className="span-showpassword">
+                  <span
+                    onClick={togglePasswordVisibility}
+                    className="span-showpassword"
+                  >
                     {showPassword ? <FaEyeSlash /> : <FaEye />}
                   </span>
                 </label>
