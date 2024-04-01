@@ -6,18 +6,17 @@ import { FaGoogle, FaLinkedinIn, FaGithub,FaLock, FaUser,FaEnvelope,FaEye,FaEyeS
 import Swal from "sweetalert2";
 import axios from "axios";
 
-
-function LoginRegister({ setIsAuthenticated, setUserName}) {
+function LoginRegister({   setIsAuthenticated, setUserName}) {
   const [showRegisterForm, setShowRegisterForm] = useState(true);
   const [showPassword, setShowPassword] = useState(false);
 
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState({  
     name: "",
     email: "",
     password: ""
   });
   const [loginFormData, setLoginFormData] = useState({
-    name: "",
+    email: "",
     password: ""
   });
   useEffect(() => {
@@ -55,15 +54,12 @@ function LoginRegister({ setIsAuthenticated, setUserName}) {
   const handleLoginSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("https://nodejs-mysql-apirest-8516156f22db.herokuapp.com/api/login", loginFormData);
+      const response = await axios.post("http://localhost:3001/api/login", loginFormData);
       console.log(response.data);
-      setIsAuthenticated(true); // Cambiar el estado a autenticado
-      localStorage.setItem("isAuthenticated", "true");
-      setUserName(response.data.user.name); // Guardar el nombre de usuario en el estado
-      localStorage.setItem("userName", response.data.user.name); // Guardar el nombre de usuario en localStorage
+      setIsAuthenticated(true);  // Cambiar el estado a autenticado
       Swal.fire({
         title: "Inicio de sesión exitoso",
-        text: `¡Bienvenido de nuevo, ${response.data.user.name}!!`,
+        text: `¡Bienvenido de nuevo!!`,
         icon: "success"
       });
     } catch (error) {
@@ -79,7 +75,7 @@ function LoginRegister({ setIsAuthenticated, setUserName}) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("https://nodejs-mysql-apirest-8516156f22db.herokuapp.com/api/users", formData);
+      const response = await axios.post("http://localhost:3001/api/users", formData);
       console.log(response.data);
      
       Swal.fire({
@@ -229,14 +225,14 @@ function LoginRegister({ setIsAuthenticated, setUserName}) {
               <p>Inicia sesión con el nombre se usuario</p>
               <form onSubmit={handleLoginSubmit} className="form" id="form-login">
                 <label>
-                <FaUser />
+                <FaEnvelope />
                   <input
                     type="text"
-                    name="name"
-                    placeholder="Nombre de Usuario"
+                    name="email"
+                    placeholder="Correo Electronico"
                     maxLength="30"
                     id="username-l"
-                    value={loginFormData.name}
+                    value={loginFormData.email}
                     onChange={handleLoginChange}
                     required
                   />
