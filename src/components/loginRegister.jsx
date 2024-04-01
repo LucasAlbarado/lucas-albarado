@@ -2,7 +2,16 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../components/loginRegister.css";
 import logo1 from "../images/logo1.png";
-import { FaGoogle, FaLinkedinIn, FaGithub,FaLock, FaUser,FaEnvelope,FaEye,FaEyeSlash   } from "react-icons/fa";
+import {
+  FaGoogle,
+  FaLinkedinIn,
+  FaGithub,
+  FaLock,
+  FaUser,
+  FaEnvelope,
+  FaEye,
+  FaEyeSlash,
+} from "react-icons/fa";
 import Swal from "sweetalert2";
 import axios from "axios";
 
@@ -13,7 +22,7 @@ function LoginRegister({   setIsAuthenticated, setUserName}) {
   const [formData, setFormData] = useState({  
     name: "",
     email: "",
-    password: ""
+    password: "",
   });
   const [loginFormData, setLoginFormData] = useState({
     email: "",
@@ -40,14 +49,14 @@ function LoginRegister({   setIsAuthenticated, setUserName}) {
   const handleChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
   const handleLoginChange = (e) => {
     setLoginFormData({
       ...loginFormData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
@@ -67,7 +76,7 @@ function LoginRegister({   setIsAuthenticated, setUserName}) {
       Swal.fire({
         title: "Error",
         text: "Ha ocurrido un error durante el inicio de sesión. Por favor, verifica tus credenciales e inténtalo de nuevo.",
-        icon: "error"
+        icon: "error",
       });
     }
   };
@@ -77,12 +86,12 @@ function LoginRegister({   setIsAuthenticated, setUserName}) {
     try {
       const response = await axios.post("http://localhost:3001/api/users", formData);
       console.log(response.data);
-     
+
       Swal.fire({
         title: "Registro exitoso",
         text: "¡Tu cuenta ha sido creada correctamente!",
         icon: "success",
-        confirmButtonText: "Ingresa aqui"
+        confirmButtonText: "Ingresa aqui",
       }).then((result) => {
         if (result.isConfirmed) {
           handleSignInClick();
@@ -93,11 +102,11 @@ function LoginRegister({   setIsAuthenticated, setUserName}) {
       Swal.fire({
         title: "Error",
         text: "Ha ocurrido un error durante el registro. Por favor, inténtalo de nuevo más tarde.",
-        icon: "error"
+        icon: "error",
       });
     }
   };
-  
+
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
@@ -162,7 +171,7 @@ function LoginRegister({   setIsAuthenticated, setUserName}) {
               <form onSubmit={handleSubmit} className="form" id="form-register">
                 {/* Contenido del formulario de registro */}
                 <label>
-                <FaUser />
+                  <FaUser />
                   <input
                     type="text"
                     name="name"
@@ -175,7 +184,7 @@ function LoginRegister({   setIsAuthenticated, setUserName}) {
                   />
                 </label>
                 <label>
-                <FaEnvelope />
+                  <FaEnvelope />
                   <input
                     type="email"
                     name="email"
@@ -223,8 +232,13 @@ function LoginRegister({   setIsAuthenticated, setUserName}) {
                 </Link>
               </div>
               <p>Inicia sesión con el nombre se usuario</p>
-              <form onSubmit={handleLoginSubmit} className="form" id="form-login">
+              <form
+                onSubmit={handleLoginSubmit}
+                className="form"
+                id="form-login"
+              >
                 <label>
+                  <FaUser />
                 <FaEnvelope />
                   <input
                     type="text"
@@ -250,7 +264,10 @@ function LoginRegister({   setIsAuthenticated, setUserName}) {
                     onChange={handleLoginChange}
                     required
                   />
-                  <span onClick={togglePasswordVisibility} className="span-showpassword">
+                  <span
+                    onClick={togglePasswordVisibility}
+                    className="span-showpassword"
+                  >
                     {showPassword ? <FaEyeSlash /> : <FaEye />}
                   </span>
                 </label>
